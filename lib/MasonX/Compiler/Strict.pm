@@ -43,6 +43,12 @@ BEGIN {
       default => 1,
       descr => "Whether to allow content outside blocks, or die",
     },
+    default_method_to_call => {
+      parse => 'string',
+      type  => SCALAR,
+      optional => 1,
+      descr => "A method to always call instead of calling a comp directly",
+    },
   );
 }
 
@@ -74,5 +80,78 @@ sub perl_line {
   }
   $self->SUPER::perl_line(%arg);
 }
+
+# BEGIN DIRECT THEFT FROM HTML-Mason 1.50
+sub component_call
+{
+    my $self = shift;
+    my %p = @_;
+
+    my ($prespace, $call, $postspace) = ($p{call} =~ /(\s*)(.*)(\s*)/s);
+    if ( $call =~ m,^[\w/.],)
+    {
+        my $comma = index($call, ',');
+        $comma = length $call if $comma == -1;
+        (my $comp = substr($call, 0, $comma)) =~ s/\s+$//;
+        if (defined $self->{default_method_to_call} and $comp !~ /:/) { ##
+          $comp = "$comp:$self->{default_method_to_call}";              ##
+        }                                                               ##
+        $call = "'$comp'" . substr($call, $comma);
+    }
+    my $code = "\$m->comp( $prespace $call $postspace \n); ";
+    eval { $self->postprocess_perl->(\$code) } if $self->postprocess_perl;
+    compiler_error $@ if $@;
+
+    $self->_add_body_code($code);
+
+    $self->{current_compile}{last_body_code_type} = 'component_call';
+}
+
+sub component_content_call_end
+{
+    my $self = shift;
+    my $c = $self->{current_compile};
+    my %p = @_;
+
+    $self->lexer->throw_syntax_error("Found component with content ending tag but no beginning tag")
+        unless @{ $c->{comp_with_content_stack} };
+
+    my $call = pop @{ $c->{comp_with_content_stack} };
+    my $call_end = $p{call_end};
+    for ($call_end) { s/^\s+//; s/\s+$//; }
+
+    my $comp = undef;
+    if ( $call =~ m,^[\w/.],)
+    {
+        my $comma = index($call, ',');
+        $comma = length $call if $comma == -1;
+        ($comp = substr($call, 0, $comma)) =~ s/\s+$//;
+        if (defined $self->{default_method_to_call} and $comp !~ /:/) { ##
+          $comp = "$comp:$self->{default_method_to_call}";              ##
+        }                                                               ##
+        $call = "'$comp'" . substr($call, $comma);
+    }
+    if ($call_end) {
+        if ($call_end !~ m,^[\w/.],) {
+            $self->lexer->throw_syntax_error("Cannot use an expression inside component with content ending tag; use a bare component name or </&> instead");
+        }
+        if (!defined($comp)) {
+            $self->lexer->throw_syntax_error("Cannot match an expression as a component name; use </&> instead");
+        }
+        if ($call_end ne $comp) {
+            $self->lexer->throw_syntax_error("Component name in ending tag ($call_end) does not match component name in beginning tag ($comp)");
+        }
+    }
+
+    my $code = "} }, $call\n );\n";
+
+    eval { $self->postprocess_perl->(\$code) } if $self->postprocess_perl;
+    compiler_error $@ if $@;
+
+    $self->_add_body_code($code);
+
+    $c->{last_body_code_type} = 'component_content_call_end';
+}
+# BEGIN DIRECT THEFT FROM HTML-Mason 1.50
 
 1;
