@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-package MasonX::Component::RunMain;
+package MasonX::Free::Component;
 use parent 'HTML::Mason::Component::FileBased';
 # ABSTRACT: a component with a "main" method, not just a bunch of text
 

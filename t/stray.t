@@ -7,14 +7,14 @@ use Test::More;
 
 use Path::Class qw(dir);
 use HTML::Mason::Interp;
-use MasonX::Compiler::Strict;
+use MasonX::Free::Compiler;
 
 my $interp = HTML::Mason::Interp->new(
   comp_root => dir('mason/stray')->absolute->stringify,
   # This works, too. -- rjbs, 2012-09-20
-  # compiler_class => 'MasonX::Compiler::Strict',
+  # compiler_class => 'MasonX::Free::Compiler',
   # allow_stray_content => 0,
-  compiler  => MasonX::Compiler::Strict->new(allow_stray_content => 0),
+  compiler  => MasonX::Free::Compiler->new(allow_stray_content => 0),
 );
 
 sub output_for {

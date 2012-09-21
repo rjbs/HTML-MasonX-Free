@@ -1,4 +1,4 @@
-package MasonX::Resolver::AutoInherit;
+package MasonX::Free::Resolver;
 use Moose;
 # ABSTRACT: a resolver that lets you specialize components with dir overlays
 

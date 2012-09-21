@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-package MasonX::Compiler::Strict;
+package MasonX::Free::Compiler;
 use parent 'HTML::Mason::Compiler::ToObject';
 # ABSTRACT: an HTML::Mason compiler that can reject more input
 
@@ -21,10 +21,6 @@ Right now, there's just one extra option, but there will be more.
 If false, any text outside of a block (like a method or doc block), other than
 blank lines, will be fatal.  Similar, any Perl lines other than comments will
 be fatal.
-
-This option is especially useful when used with L<MasonX::Component::RunMain>,
-in which the component's body is in the C<main> method, not just "all the stuff
-that wasn't in anything else."
 
 =cut
 

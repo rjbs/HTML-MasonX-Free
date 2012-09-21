@@ -7,18 +7,15 @@ use Test::More;
 
 use Path::Class qw(dir);
 use HTML::Mason::Interp;
-use MasonX::Compiler::Strict;
-use MasonX::Resolver::AutoInherit;
-use MasonX::Component::RunMain;
+use MasonX::Free::Compiler;
+use MasonX::Free::Resolver;
+use MasonX::Free::Component;
 
 my $interp = HTML::Mason::Interp->new(
-  # This works, too. -- rjbs, 2012-09-20
-  # compiler_class => 'MasonX::Compiler::Strict',
-  # allow_stray_content => 0,
   comp_root => '/-',
-  compiler  => MasonX::Compiler::Strict->new(default_method_to_call => 'main'),
-  resolver  => MasonX::Resolver::AutoInherit->new({
-    comp_class => 'MasonX::Component::RunMain',
+  compiler  => MasonX::Free::Compiler->new(default_method_to_call => 'main'),
+  resolver  => MasonX::Free::Resolver->new({
+    comp_class => 'MasonX::Free::Component',
     resolver_roots  => [
       [ comp_root => dir('mason/runmain')->absolute->stringify ],
     ],

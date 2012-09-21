@@ -6,9 +6,9 @@ use Test::More;
 
 use Path::Class qw(dir);
 use HTML::Mason::Interp;
-use MasonX::Resolver::AutoInherit;
+use MasonX::Free::Resolver;
 
-my $resolver = MasonX::Resolver::AutoInherit->new({
+my $resolver = MasonX::Free::Resolver->new({
   resolver_roots => [
     [  subderived => dir('mason/autoinherit/subderived')->absolute->stringify ],
     [  derived    => dir('mason/autoinherit/derived')->absolute->stringify    ],
