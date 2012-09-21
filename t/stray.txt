@@ -10,7 +10,7 @@ use HTML::Mason::Interp;
 use MasonX::Compiler::Strict;
 
 my $interp = HTML::Mason::Interp->new(
-  comp_root => dir('mason')->absolute->stringify,
+  comp_root => dir('mason/stray')->absolute->stringify,
   # This works, too. -- rjbs, 2012-09-20
   # compiler_class => 'MasonX::Compiler::Strict',
   # allow_stray_content => 0,
