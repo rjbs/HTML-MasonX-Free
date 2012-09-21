@@ -1,6 +1,10 @@
 Release hsitory for {{$dist->name}}
 
 {{$NEXT}}
+          combined MasonX::Resolver::AutoInherit and MasonX::Component::RunMain
+
+          They just didn't work well independently.  They only make sense
+          when all put together.  What a bummer.
 
 0.001     2012-09-20 23:03:04 America/New_York
           first release, after meaning to write this for three years
