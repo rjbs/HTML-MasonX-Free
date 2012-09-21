@@ -11,8 +11,10 @@ use MasonX::Compiler::Strict;
 
 my $interp = HTML::Mason::Interp->new(
   comp_root => dir('mason')->absolute->stringify,
-  compiler_class => 'MasonX::Compiler::Strict',
-  allow_stray_content => 0,
+  # This works, too. -- rjbs, 2012-09-20
+  # compiler_class => 'MasonX::Compiler::Strict',
+  # allow_stray_content => 0,
+  compiler  => MasonX::Compiler::Strict->new(allow_stray_content => 0),
 );
 
 sub output_for {
