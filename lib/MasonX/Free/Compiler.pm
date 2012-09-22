@@ -22,6 +22,22 @@ If false, any text outside of a block (like a method or doc block), other than
 blank lines, will be fatal.  Similar, any Perl lines other than comments will
 be fatal.
 
+=attr default_method_to_call
+
+If set, this is the name of a method that will be dropped in place whenever the
+user is trying to call a component without a method.  For example, if you set
+it to "main" then this:
+
+  <& /foo/bar &>
+
+...will be treated like this:
+
+  <& /foo/bar:main  &>
+
+To keep this consistent with the top-level called performed by the mason
+interpreter, you should probably also use L<MasonX::Free::Component> as your
+component class.
+
 =cut
 
 use namespace::autoclean;
