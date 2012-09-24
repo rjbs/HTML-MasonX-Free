@@ -8,6 +8,7 @@ use Test::More;
 use Path::Class qw(dir);
 use HTML::Mason::Interp;
 use HTML::MasonX::Free::Compiler;
+use HTML::MasonX::Free::Request;
 use HTML::MasonX::Free::Resolver;
 use HTML::MasonX::Free::Component;
 
@@ -16,6 +17,7 @@ my $interp = HTML::Mason::Interp->new(
   compiler  => HTML::MasonX::Free::Compiler->new(
     default_method_to_call => 'main'
   ),
+  request_class => 'HTML::MasonX::Free::Request',
   resolver  => HTML::MasonX::Free::Resolver->new({
     comp_class => 'HTML::MasonX::Free::Component',
     resolver_roots  => [

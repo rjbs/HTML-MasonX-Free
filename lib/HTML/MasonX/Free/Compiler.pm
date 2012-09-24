@@ -164,6 +164,6 @@ sub component_content_call_end
 
     $c->{last_body_code_type} = 'component_content_call_end';
 }
-# BEGIN DIRECT THEFT FROM HTML-Mason 1.50
+# END DIRECT THEFT FROM HTML-Mason 1.50
 
 1;
