@@ -1,6 +1,8 @@
 Release history for {{$dist->name}}
 
 {{$NEXT}}
+          HTML::MasonX::Free::Request to eliminate the wrapping chain; see
+          4497ab8 for explanation
 
 0.002     2012-09-24 11:21:21 America/New_York
           combined MasonX::Resolver::AutoInherit and MasonX::Component::RunMain
