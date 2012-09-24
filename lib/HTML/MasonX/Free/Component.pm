@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-package MasonX::Free::Component;
+package HTML::MasonX::Free::Component;
 use parent 'HTML::Mason::Component::FileBased';
 # ABSTRACT: a component with a "main" method, not just a bunch of text
 
@@ -14,16 +14,16 @@ concatenated together and run.
 
 This is sort of a mess.
 
-If you use MasonX::Free::Component as your component class instead, rendering
-the component will call its C<main> method instead of all that other junk.
-This component class extends HTML::Mason::Component::FileBased.  If this is a
-problem because of your esoteric Mason configuration, don't panic.  Just read
-the source.  Seriously, it's tiny.
+If you use HTML::MasonX::Free::Component as your component class instead,
+rendering the component will call its C<main> method instead of all that other
+junk.  This component class extends HTML::Mason::Component::FileBased.  If this
+is a problem because of your esoteric Mason configuration, don't panic.  Just
+read the source.  Seriously, it's tiny.
 
-This component class is meant to work well with L<MasonX::Free::Compiler>,
-which will let you throw a syntax exception if there's any significant content
-outside of blocks, and which can apply C<default_method_to_call> to calls found
-when compiling.
+This component class is meant to work well with
+L<HTML::MasonX::Free::Compiler>, which will let you throw a syntax exception if
+there's any significant content outside of blocks, and which can apply
+C<default_method_to_call> to calls found when compiling.
 
 You can pass a C<default_method_to_call> argument to the constructor for this
 class, but it's not all that easy to get where you need it, so maybe you should

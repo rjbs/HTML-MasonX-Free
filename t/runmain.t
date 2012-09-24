@@ -7,15 +7,17 @@ use Test::More;
 
 use Path::Class qw(dir);
 use HTML::Mason::Interp;
-use MasonX::Free::Compiler;
-use MasonX::Free::Resolver;
-use MasonX::Free::Component;
+use HTML::MasonX::Free::Compiler;
+use HTML::MasonX::Free::Resolver;
+use HTML::MasonX::Free::Component;
 
 my $interp = HTML::Mason::Interp->new(
   comp_root => '/-',
-  compiler  => MasonX::Free::Compiler->new(default_method_to_call => 'main'),
-  resolver  => MasonX::Free::Resolver->new({
-    comp_class => 'MasonX::Free::Component',
+  compiler  => HTML::MasonX::Free::Compiler->new(
+    default_method_to_call => 'main'
+  ),
+  resolver  => HTML::MasonX::Free::Resolver->new({
+    comp_class => 'HTML::MasonX::Free::Component',
     resolver_roots  => [
       [ comp_root => dir('mason/runmain')->absolute->stringify ],
     ],

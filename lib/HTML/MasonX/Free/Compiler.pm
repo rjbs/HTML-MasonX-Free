@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-package MasonX::Free::Compiler;
+package HTML::MasonX::Free::Compiler;
 use parent 'HTML::Mason::Compiler::ToObject';
 # ABSTRACT: an HTML::Mason compiler that can reject more input
 
@@ -35,8 +35,8 @@ it to "main" then this:
   <& /foo/bar:main  &>
 
 To keep this consistent with the top-level called performed by the mason
-interpreter, you should probably also use L<MasonX::Free::Component> as your
-component class.
+interpreter, you should probably also use L<HTML::MasonX::Free::Component> as
+your component class.
 
 =cut
 

@@ -1,4 +1,4 @@
-package MasonX::Free::Resolver;
+package HTML::MasonX::Free::Resolver;
 use Moose;
 # ABSTRACT: a resolver that lets you specialize components with dir overlays
 
@@ -71,7 +71,7 @@ the C<glob_path> method.
 This argument is the class that will be used for components created by this
 resolver.  The default is HTML::Mason::Component::FileBased.
 
-Because MasonX::Resolver::AutoInherit is not (right now) part of
+Because HTML::MasonX::Resolver::AutoInherit is not (right now) part of
 Class::Container, you can't pass this as an argument to the interp constructor.
 
 =cut
@@ -127,8 +127,8 @@ sub get_info {
     ! $self->allow_unusual_comp_roots
     and ($comp_root_key ne 'MAIN' or $comp_root_path ne '/-')
   ) {
-    croak "when using MasonX::Resolver::AutoInherit, you must either set the "
-        . "comp_root to '/-' or set allow_unusual_comp_roots to true";
+    croak "when using HTML::MasonX::Resolver::AutoInherit, you must either "
+        . "set the comp_root to '/-' or set allow_unusual_comp_roots to true";
   }
 
   my ($want_root, $path);

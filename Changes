@@ -1,4 +1,4 @@
-Release hsitory for {{$dist->name}}
+Release history for {{$dist->name}}
 
 {{$NEXT}}
           combined MasonX::Resolver::AutoInherit and MasonX::Component::RunMain
