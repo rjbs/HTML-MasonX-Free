@@ -1,6 +1,8 @@
 Release history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.002     2012-09-24 11:21:21 America/New_York
           combined MasonX::Resolver::AutoInherit and MasonX::Component::RunMain
 
           They just didn't work well independently.  They only make sense
