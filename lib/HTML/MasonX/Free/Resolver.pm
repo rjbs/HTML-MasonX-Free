@@ -127,7 +127,7 @@ sub get_info {
     ! $self->allow_unusual_comp_roots
     and ($comp_root_key ne 'MAIN' or $comp_root_path ne '/-')
   ) {
-    croak "when using HTML::MasonX::Resolver::AutoInherit, you must either "
+    croak "when using HTML::MasonX::Free::Resolver, you must either "
         . "set the comp_root to '/-' or set allow_unusual_comp_roots to true";
   }
 
