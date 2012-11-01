@@ -1,6 +1,7 @@
 Release history for {{$dist->name}}
 
 {{$NEXT}}
+          fix the text of an error message
 
 0.003     2012-09-24 14:36:23 America/New_York
           HTML::MasonX::Free::Request to eliminate the wrapping chain; see

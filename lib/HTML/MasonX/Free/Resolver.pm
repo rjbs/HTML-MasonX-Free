@@ -125,7 +125,7 @@ sub get_info {
   # the resolver. -- rjbs, 2012-09-19
   if (
     ! $self->allow_unusual_comp_roots
-    and ($comp_root_key ne 'MAIN' or $comp_root_path ne '/-')
+    and ($comp_root_key ne 'MAIN' or $comp_root_path !~ m{\A[\\/]-\z})
   ) {
     croak "when using HTML::MasonX::Free::Resolver, you must either "
         . "set the comp_root to '/-' or set allow_unusual_comp_roots to true";
