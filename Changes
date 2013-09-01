@@ -2,6 +2,9 @@ Release history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.005     2013-08-31 23:59:31 America/New_York
+          update bugtracker and repo
+
 0.004     2012-11-01 09:57:17 America/New_York
           fix the text of an error message
 
