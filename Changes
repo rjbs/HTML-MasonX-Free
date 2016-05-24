@@ -1,6 +1,7 @@
 Release history for {{$dist->name}}
 
 {{$NEXT}}
+        - added HTML::MasonX::Free::HTMLHunk
 
 0.005     2013-08-31 23:59:31 America/New_York
           update bugtracker and repo
