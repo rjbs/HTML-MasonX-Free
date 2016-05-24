@@ -5,6 +5,17 @@ package HTML::MasonX::Free::Request;
 # ABSTRACT: a request class that eliminates the wrapping chain
 use parent 'HTML::Mason::Request';
 
+=head1 OVERVIEW
+
+You don't want to know about this class.  The basic thing is: if you're using
+L<HTML::MasonX::Free::Resolver>, you should use this.
+
+If you want a little more information:  this gets rid of the notion of
+automatically execing the whole wrapping chain (like autohandlers) for
+components.  It's gross, but it can make things a fair bit simpler.
+
+=cut
+
 use Log::Any qw($log);
 use HTML::Mason::Exceptions( abbr => [qw(error param_error syntax_error
                                          top_level_not_found_error error)] );
