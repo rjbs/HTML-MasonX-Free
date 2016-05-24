@@ -1,6 +1,7 @@
 package HTML::MasonX::Free::Resolver;
-use Moose;
+
 # ABSTRACT: a resolver that lets you specialize components with dir overlays
+use Moose;
 
 =head1 OVERVIEW
 

@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package HTML::MasonX::Free::Component;
-use parent 'HTML::Mason::Component::FileBased';
 # ABSTRACT: a component with a "main" method, not just a bunch of text
+
+use parent 'HTML::Mason::Component::FileBased';
 
 =head1 OVERVIEW
 

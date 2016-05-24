@@ -1,6 +1,7 @@
-package HTML::MasonX::Free;
 use strict;
 use warnings;
+package HTML::MasonX::Free;
+
 # ABSTRACT: a secret society of HTML::Mason-using throwback modules
 
 =head1 OVERVIEW

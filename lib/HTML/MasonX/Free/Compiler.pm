@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package HTML::MasonX::Free::Compiler;
-use parent 'HTML::Mason::Compiler::ToObject';
+
 # ABSTRACT: an HTML::Mason compiler that can reject more input
+use parent 'HTML::Mason::Compiler::ToObject';
 
 =head1 OVERVIEW
 

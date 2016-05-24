@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package HTML::MasonX::Free::Request;
-use parent 'HTML::Mason::Request';
+
 # ABSTRACT: a request class that eliminates the wrapping chain
+use parent 'HTML::Mason::Request';
 
 use Log::Any qw($log);
 use HTML::Mason::Exceptions( abbr => [qw(error param_error syntax_error

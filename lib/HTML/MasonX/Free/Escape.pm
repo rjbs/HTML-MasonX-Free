@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 package HTML::MasonX::Free::Escape;
+
 # ABSTRACT: default HTML escaping with an escape hatch
 
 =head1 OVERVIEW
